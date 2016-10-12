@@ -5,11 +5,11 @@
 
 Andfix的修复是方法级的，对有bug的方法进行替换。
 
-![Alt text](/myWorkDocs/HotFix/hotfix1.png)
+![Alt text](../myWorkDocs/HotFix/hotfix1.png)
 
 使用AndFix修复热修复的整体流程：
 
-![Alt text](/myWorkDocs/HotFix/hotfix5.png)
+![Alt text](../myWorkDocs/HotFix/hotfix5.png)
 
 ##### 方法替换过程：
 
