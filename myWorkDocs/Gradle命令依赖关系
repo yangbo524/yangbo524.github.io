@@ -1,2 +1,0 @@
-#### gradle命令查看工程依赖关系
-输入命令： gradle dependencies
