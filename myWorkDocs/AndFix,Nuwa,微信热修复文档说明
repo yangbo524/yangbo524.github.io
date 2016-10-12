@@ -5,15 +5,15 @@
 
 Andfix的修复是方法级的，对有bug的方法进行替换。
 
-![Alt text](/HotFix/hotfix1.png)
+![Alt text](/myWorkDocs/HotFix/hotfix1.png)
 
 使用AndFix修复热修复的整体流程：
 
-![Alt text](/HotFix/hotfix5.png)
+![Alt text](/myWorkDocs/HotFix/hotfix5.png)
 
 ##### 方法替换过程：
 
-![Alt text](/HotFix/hotfix6.png)
+![Alt text](/myWorkDocs/HotFix/hotfix6.png)
 
 
 ##### 优缺点
@@ -26,7 +26,7 @@ AndFix 采用native hook的方式，这套方案直接使用 dalvik_replaceMetho
 
 不支持新加全局变量：
 
-![Alt text](/Andfix_nuwa_weixin/result1.PNG)
+![Alt text](/myWorkDocs/Andfix_nuwa_weixin/result1.PNG)
 修改方法里面的bug，不能大规模做更改
 ### Nuwa
 ##### 技术原理
@@ -37,11 +37,11 @@ AndFix 采用native hook的方式，这套方案直接使用 dalvik_replaceMetho
 
 理论上，如果在不同的dex中有相同的类存在，那么会优先选择排在前面的dex文件的类，如下图：
 
-![Alt text](/Andfix_nuwa_weixin/classloaddex1.jpg)
+![Alt text](/myWorkDocs/Andfix_nuwa_weixin/classloaddex1.jpg)
 
 在此基础上，把有问题的类打包到一个dex（patch.dex）中去，然后把这个dex插入到Elements的最前面，如下图：
 
-![Alt text](/Andfix_nuwa_weixin/classloaderdex2.jpg)
+![Alt text](/myWorkDocs/Andfix_nuwa_weixin/classloaderdex2.jpg)
 
 当一个apk在安装的时候，apk中的classes.dex会被虚拟机(dexopt)优化成odex文件，然后才会拿去执行。
 虚拟机在启动的时候，会有许多的启动参数，其中一项就是verify选项，当verify选项被打开的时候，上面doVerify变量为true，那么就会执行dvmVerifyClass进行类的校验，如果dvmVerifyClass校验类成功，那么这个类会被打上CLASS_ISPREVERIFIED的标志
@@ -70,7 +70,7 @@ System.out.println(AntilazyLoad.class);
 
 其中:
 
-![Alt text](/Andfix_nuwa_weixin/classloaderdex3.jpg)
+![Alt text](/myWorkDocs/Andfix_nuwa_weixin/classloaderdex3.jpg)
 
 之所以选择构造函数是因为他不增加方法数，一个类即使没有显式的构造函数，也会有一个隐式的默认构造函数。
 
