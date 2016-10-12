@@ -1,0 +1,101 @@
+### Putty Linux远程登录管理工具
+#### 1、Putty简介
+Putty是一款远程登录工具，用它可以非常方便的登录到Linux服务器上进行各种操作（命令行方式）。支持多种连接类型（Telnet、SSH、Rlogin ）
+#### 2、Putty下载
+<p>putty的官网是www.putty.org。进入官网即可免费下载putty，可以单独下载putty，也可以下载putty工具包，工具包包含了许多使用工具
+<p>![Alt text](/putty_img/putty1.png)</p>
+#### 3、putty的使用
+<p>双击即可运行putty，在Host Name(or IP address)输入目标主机的IP地址，点击Open即可连接。在命令行输入用户名密码即可登录系统，进行各种操作。
+<p>![Alt text](/putty_img/putty2.png)
+<p>![Alt text](/putty_img/putty3.png)
+#### 4、pscp的使用
+<p>putty可以远程登录主机进行操作，而pscp则可以向远程主机传输文件，而且使用也十分简单。PSCP不想PUTTY直接运行，而是通过命令提示符运行。输入PSCP.EXE即可看到PSCP的具体用法。
+<p>![Alt text](/putty_img/putty4.png)
+<p>传输文件到Linux主机，例如：PSCP.EXE d:\hello.txt pharen@192.168.0.109:Downloads,回车输入密码即可把hello.txt传输到Linux用户主目录的Downloads文件夹下
+<p>标准格式　　PSCP.EXE 传输文件目录 用户名@主机地址：接受文件目录
+<p>![Alt text](/putty_img/putty5.png)
+<p>当然也可以从远程主机下载文件到本机　　例如： PSCP.EXE pharen@192.168.0.109:/etc/inittab d:\
+<p>标准格式　　PSCP.EXE 用户名@主机地址：传输文件目录 本机文件目录
+<p>常用选项
+<p>-q: 安静模式，传输过程中不显示任何信息 -r: 传输目录 -P port: 指定SSH端口，默认是22 -l user:
+<p>指定哪个用户登录远程主机进行传输，可以与主机地址写在一起，如 pharen@192.168.0.109 -pw passw: 指定登录时的用户密码 -C:
+允许压缩
+#### 5、常见命令
+##### 申请root权限命令 sudo -i
+
+1、cd （文件夹名）--查看路径
+
+2、dir ---查看当前路径下的所有文件
+
+3、unzip ***.zip-----压缩文件到当前目录
+
+4、wget （路径）----下载
+
+5、mv ***   ****----移动或者重命名
+
+6、rm *** *** ----删除一次可以删除多个
+
+7、pwd ----显示当前路径
+
+8、cp ---拷贝
+
+9、解压：unzip FileName.zip
+     压缩：zip FileName.zip DirName
+
+10、sudo -i 获取拿到root权限
+
+##### 5.1 BasicInstructions基本操作命令
+
+通常来说，使用"$[Instructions] --help"可以获得以下各个命令[instructions]的帮助，包含其参数列表的定义。
+
+-ls 列出当前文件夹下所有内容
+
+$ls -o 列出当前文件夹中所有内容，含详细信息，但不列出group
+
+$ls -l 同上，含group信息
+
+$ls -a 列出当前文件夹中所有内容，包含以"."开头的文件
+
+$ls -t 按更改时间排序
+
+$ls -v 按版本先后排序
+
+-cd [dir] 进入文件夹
+
+-pwd 显示当前路径
+
+-mkdir [dir] 新建文件夹
+
+-chmod 更改文件/文件夹权限
+
+$chmod [Mode] [dir]，其中Mode形如"755"或"777"等。
+
+$chmod [Mode] [file]
+
+$chmod -R [Mode] [dir]，递归形式，即将目标文件夹内所有文件均改变权限
+
+Mode还有另一种表达方式，"755"即为"-rwxr-xr-x"，不列举了。
+
+-rm [file] 删除文件/文件夹
+
+$rm -f [file] 强行删除，忽略不存在的文件，无提示
+
+$rm -r [file] 递归删除所有内容
+
+-cp 拷贝
+
+$cp [options] [source] [destination]
+
+其中[options]可以为-f（强行拷贝）或-r（递归拷贝）
+
+-mv 重命名或移动
+
+$mv [options] [source] [destination]
+
+[options]常用：-f(强行移动/重命名), -i(移动/重命名前尝试), -u(更新)
+
+例如
+
+$mv wwwroot/cgi-bin . 将/cgi-bin目录移动到当前目录下
+
+$mv cronfile.txt myfile.txt 将cronfile.txt重命名为myfile.txt
