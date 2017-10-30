@@ -1,0 +1,4 @@
+[gerrit]
+host=10.126.53.27
+port=29418
+project=yangbo524.github.io.git
